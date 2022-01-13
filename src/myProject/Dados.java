@@ -16,34 +16,45 @@ public class Dados {
      * Method to generate a random value to caraAleatorio
      * @version v.1.0.0 date 11/01/2021
      */
-    public int dados() {
-
+    public int dados () {
+        caraAleatorio=0;
         Random aleatorio = new Random();
         caraAleatorio = aleatorio.nextInt(6) + 1;
         return caraAleatorio;
     }
 
-    public String getCara(){
-        if (caraAleatorio==1)
-        {
-            return "cohete";
+       public String getCara () {
+            switch (caraAleatorio) {
+                case 1:
+                    caraAleatorio = 1;
+                    return "cohete";
+
+                case 2:
+                    caraAleatorio = 2;
+                    return "superheroe";
+
+                case 3:
+                    caraAleatorio = 3;
+                    return "42";
+
+                case 4:
+                    caraAleatorio = 4;
+                    return "corazon";
+
+
+                case 5:
+                    caraAleatorio = 5;
+                    return "dragon";
+
+
+                case 6:
+                    caraAleatorio = 6;
+                    return "meeple";
+
+            }
+            return "error";
         }
-        if(caraAleatorio==2){
-            return "superheroe";
-        }
-        if (caraAleatorio==3){
-            return "42";
-        }
-        if (caraAleatorio==4){
-            return "corazon";
-        }
-        if (caraAleatorio==5){
-            return "dragon";
-        }
-        else{
-            return "meeple";
-        }
-    }
+
 
     public String getCaraContraria()
     {
@@ -67,4 +78,6 @@ public class Dados {
             return "cohete";
         }
     }
+
+
 }

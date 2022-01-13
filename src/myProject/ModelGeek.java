@@ -1,5 +1,6 @@
 package myProject;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * ModelGeek
@@ -10,16 +11,18 @@ import java.util.ArrayList;
  */
 public class ModelGeek {
     private static Dados dado1;
-    private Dados dado2;
-    private Dados dado3;
-    private Dados dado4;
-    private Dados dado5;
-    private Dados dado6;
-    private Dados dado7;
-    private Dados dado8;
-    private Dados dado9;
-    private Dados dado10;
-    private static String[] arreglo;
+    private static Dados dado2;
+    private static Dados dado3;
+    private static Dados dado4;
+    private static Dados dado5;
+    private static Dados dado6;
+    private static Dados dado7;
+    private static Dados dado8;
+    private static Dados dado9;
+    private static Dados dado10;
+
+
+
     private String[] activos;
     private String[] inactivos;
     private String[] usados;
@@ -42,7 +45,9 @@ public class ModelGeek {
         dado8 = new Dados();
         dado9 = new Dados();
         dado10 = new Dados();
-        ArrayList arreglo = new ArrayList();
+
+
+
         activos = new String[7];
         inactivos = new String[3];
 
@@ -51,40 +56,51 @@ public class ModelGeek {
     }
 
     public void añadir() {
-        arreglo[0] = dado1.getCara();
-        arreglo[1] = dado2.getCara();
-        arreglo[2] = dado3.getCara();
-        arreglo[3] = dado4.getCara();
-        arreglo[4] = dado5.getCara();
-        arreglo[5] = dado6.getCara();
-        arreglo[6] = dado7.getCara();
-        arreglo[7] = dado8.getCara();
-        arreglo[8] = dado9.getCara();
-        arreglo[9] = dado10.getCara();
     }
 
-    public static void eliminar1(String[] args) {
-        String[] arreglo = new String[10];
+        public static void main(String[] args) {
+            // declares an array of integers
+            Scanner teclado = new Scanner(System.in);
+            String [] arreglo;
+            int posicion;
+            // allocates memory for 10 integers
+            arreglo = new String[10];
+            // initialize first element
+            arreglo[0] = dado1.getCara();
+            arreglo[1] = dado2.getCara();
+            arreglo[2] = dado3.getCara();
+            arreglo[3] = dado4.getCara();
+            arreglo[4] = dado5.getCara();
+            arreglo[5] = dado6.getCara();
+            arreglo[6] = dado7.getCara();
+            arreglo[7] = dado8.getCara();
+            arreglo[8] = dado9.getCara();
+            arreglo[9] = dado10.getCara();
 
-        int[] newArr = null;
-        int elementToBeDeleted = 5;
 
+            System.out.println("Tus dados son: ");
+            for (int i = 0; i < 9; i++)
+            {
+                System.out.println(arreglo[i] + "en la posicion" + i);
 
-        for (int i = 0; i < arr.length-1; i++) {
-            if(arr[i] == elementToBeDeleted){
-                newArr = new int[arr.length - 1];
-                for(int index = 0; index < i; index++){
-                    newArr[index] = arr[index];
-                }
-                for(int j = i; j < arr.length - 1; j++){
-                    newArr[j] = arr[j+1];
-                }
-                break;
+            }
+
+            System.out.print("Que dado desea eliminar:");
+            posicion = teclado.nextInt();
+            for (int i = posicion; i < 9; i++) {
+                arreglo[i] = arreglo[i + 1];
+            }
+            System.out.println("Tus dados ahora son");
+            for (int i = 0; i < 9; i++)
+            {
+                System.out.println(arreglo[i] + "en la posicion" + i);
+
             }
         }
-        arreglo.(2);
-
     }
 
-}
+
+
+
+
 
