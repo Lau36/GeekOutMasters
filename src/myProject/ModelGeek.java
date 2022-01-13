@@ -55,9 +55,8 @@ public class ModelGeek {
 
     }
 
-    public void añadir() {
+    public void eliminar() {
     }
-
         public static void main(String[] args) {
             // declares an array of integers
             Scanner teclado = new Scanner(System.in);
@@ -77,14 +76,11 @@ public class ModelGeek {
             arreglo[8] = dado9.getCara();
             arreglo[9] = dado10.getCara();
 
-
             System.out.println("Tus dados son: ");
             for (int i = 0; i < 9; i++)
             {
                 System.out.println(arreglo[i] + "en la posicion" + i);
-
             }
-
             System.out.print("Que dado desea eliminar:");
             posicion = teclado.nextInt();
             for (int i = posicion; i < 9; i++) {

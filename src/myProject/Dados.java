@@ -50,7 +50,6 @@ public class Dados {
                 case 6:
                     caraAleatorio = 6;
                     return "meeple";
-
             }
             return "error";
         }
