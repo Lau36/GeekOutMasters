@@ -10,45 +10,45 @@ import java.util.Random;
  */
 
 public class Dados {
-    private int caraAleatorio;
+    private int carasDados;
+    private int[] caras;
 
     /**
      * Method to generate a random value to caraAleatorio
      * @version v.1.0.0 date 11/01/2021
      */
-    public int dados () {
-        caraAleatorio=0;
+    public int getCara (){
         Random aleatorio = new Random();
-        caraAleatorio = aleatorio.nextInt(6) + 1;
-        return caraAleatorio;
+        carasDados = aleatorio.nextInt(6) + 1;
+        return carasDados;
     }
 
-       public String getCara () {
-            switch (caraAleatorio) {
+       public String caras () {
+            switch (carasDados) {
                 case 1:
-                    caraAleatorio = 1;
+                    carasDados = 1;
                     return "cohete";
 
                 case 2:
-                    caraAleatorio = 2;
+                    carasDados = 2;
                     return "superheroe";
 
                 case 3:
-                    caraAleatorio = 3;
+                    carasDados = 3;
                     return "42";
 
                 case 4:
-                    caraAleatorio = 4;
+                    carasDados = 4;
                     return "corazon";
 
 
                 case 5:
-                    caraAleatorio = 5;
+                    carasDados = 5;
                     return "dragon";
 
 
                 case 6:
-                    caraAleatorio = 6;
+                    carasDados = 6;
                     return "meeple";
             }
             return "error";
@@ -57,20 +57,20 @@ public class Dados {
 
     public String getCaraContraria()
     {
-        if (caraAleatorio==1)
+        if (carasDados==1)
         {
             return "meeple";
         }
-        if(caraAleatorio==2){
+        if(carasDados==2){
             return "dragon";
         }
-        if (caraAleatorio==3){
+        if (carasDados==3){
             return "corazon";
         }
-        if (caraAleatorio==4){
+        if (carasDados==4){
             return "42";
         }
-        if (caraAleatorio==5){
+        if (carasDados==5){
             return "superheroe";
         }
         else{
