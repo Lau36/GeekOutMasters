@@ -29,8 +29,8 @@ public class GUI extends JFrame {
             + "3. El Superhéroe permite que cualquier dado no usado (sección dados activos) sea volteado y colocando en su cara opuesta.\n"
             + "4. El Corazón permite tomar un dado de la sección de dados inactivos y lanzarlo para que sea un nuevo dado activo.\n"
             + "5. El Dragón es la cara que se quiere evitar, ya que si al final de la ronda es el último dado activo que queda se habrán perdido todos los puntos ganados y acumulados.\n"
-            + "6. 42 es cara que permite sumar puntos al final de la ronda.\n"
-            + "Pero tiene que tener en cuenta que cada dado tiene una cara opuesta.\n"
+            + "6. 42 es la cara que permite sumar puntos al final de la ronda.\n"
+            + "Pero tienes que tener en cuenta que cada dado tiene una cara opuesta.\n"
             + "Oprime el boton de Caras para saber mas!!";
 
     public static final String MENSAJE_CARAS = "Hola!! al parecer quieres conocer cuales son las caras opuestas de los dados, aca te explico.\n"
@@ -42,7 +42,7 @@ public class GUI extends JFrame {
     private JLabel dado1, dado2, dado3, dado4, dado5, dado6, dado7, dado8, dado9, dado10;
     private JPanel panelPuntaje, panelUtilizados, panelActivos, panelInactivos;
     private JButton lanzar, ayuda, salir, carasOpuestas;
-    private ImageIcon imageDado1, imageDado2, imageDado;
+    private ImageIcon imageDado1, imageDado2, imageDado, imageBoton;
     private JTextArea mensajeRonda;
     private Escucha escucha;
     private ModelGeek modelGeek;
@@ -126,9 +126,14 @@ public class GUI extends JFrame {
         constraints.anchor = GridBagConstraints.CENTER;
         this.add(lanzar, constraints);
         lanzar.addActionListener(escucha);
+        lanzar.setBackground(Color.darkGray);
+        lanzar.setForeground(Color.WHITE);
 
-        salir = new JButton("Salir");
-        salir.setFont(new Font("times new roman", Font.BOLD, 15));
+        salir = new JButton();
+        imageBoton = new ImageIcon (getClass().getResource("/resources/botonSalir.png"));
+        salir.setIcon(imageBoton);
+        salir.setBackground(Color.WHITE);
+        //salir.setFont(new Font("times new roman", Font.BOLD, 15));
         constraints.gridx = 2;
         constraints.gridy = 3;
         constraints.gridwidth = 1;
@@ -137,8 +142,9 @@ public class GUI extends JFrame {
         this.add(salir, constraints);
         salir.addActionListener(escucha);
 
-        ayuda = new JButton("?");
-        ayuda.setFont(new Font("times new roman", Font.BOLD, 15));
+        ayuda = new JButton();
+        imageBoton = new ImageIcon (getClass().getResource("/resources/boton.png"));
+        //ayuda.setFont(new Font("times new roman", Font.BOLD, 15));
         constraints.gridx = 0;
         constraints.gridy = 3;
         constraints.gridwidth = 1;
@@ -146,9 +152,15 @@ public class GUI extends JFrame {
         constraints.anchor = GridBagConstraints.LINE_END;
         this.add(ayuda, constraints);
         ayuda.addActionListener(escucha);
+        ayuda.setBackground(Color.WHITE);
+        ayuda.setIcon(imageBoton);
+        //ayuda.setIcon(new ImageIcon(imageBoton.getImage().getScaledInstance(ayuda.getWidth(), ayuda.getHeight(),Image.SCALE_SMOOTH)));
+
 
         carasOpuestas = new JButton("Caras");
         carasOpuestas.setFont(new Font("times new roman", Font.BOLD, 15));
+        carasOpuestas.setBackground(Color.darkGray);
+        carasOpuestas.setForeground(Color.WHITE);
         constraints.gridx = 2;
         constraints.gridy = 3;
         constraints.gridwidth = 1;
@@ -159,7 +171,7 @@ public class GUI extends JFrame {
 
 
         panelActivos = new JPanel();
-        panelActivos.setPreferredSize(new Dimension(700, 400));
+        panelActivos.setPreferredSize(new Dimension(700, 200));
         panelActivos.setBorder(BorderFactory.createTitledBorder("Dados activos: "));
         constraints.gridx = 1;
         constraints.gridy = 2;
@@ -168,6 +180,7 @@ public class GUI extends JFrame {
         constraints.anchor = GridBagConstraints.CENTER;
         this.add(panelActivos, constraints);
         panelActivos.setBackground(new Color(255, 255, 255, 0));
+        panelActivos.setOpaque(false);
 
         panelActivos.add(dado1);
         panelActivos.add(dado2);
@@ -220,12 +233,13 @@ public class GUI extends JFrame {
 
         mensajeRonda = new JTextArea();
         mensajeRonda.setBorder(BorderFactory.createTitledBorder("Ronda"));
+        panelPuntaje.setPreferredSize(new Dimension(90, 30));
         mensajeRonda.setEditable(false);
         constraints.gridx = 2;
-        constraints.gridy = 2;
+        constraints.gridy = 3;
         constraints.gridwidth = 1;
         constraints.fill = GridBagConstraints.NONE;
-        constraints.anchor = GridBagConstraints.CENTER;
+        //constraints.anchor = GridBagConstraints.CENTER;
         this.add(mensajeRonda, constraints);
 
 
@@ -256,6 +270,7 @@ public class GUI extends JFrame {
             } else {
                 if (e.getSource() == lanzar) {
                     int[] caraDados = modelGeek.getCaras();
+                    modelGeek.calcularCara();
                     imageDado = new ImageIcon(getClass().getResource("/resources/" + caraDados[0] + ".png"));
                     dado1.setIcon(imageDado);
                     imageDado = new ImageIcon(getClass().getResource("/resources/" + caraDados[1] + ".png"));
@@ -276,7 +291,7 @@ public class GUI extends JFrame {
                     dado9.setIcon(imageDado);
                     imageDado = new ImageIcon(getClass().getResource("/resources/" + caraDados[9] + ".png"));
                     dado10.setIcon(imageDado);
-                } else {
+                } else{
                     if (e.getSource() == carasOpuestas) {
                         JOptionPane.showMessageDialog(null, MENSAJE_CARAS);
                     } else {
@@ -290,32 +305,46 @@ public class GUI extends JFrame {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            if (e.getSource() == dado1 & e.getClickCount() == 2) {
-                dado1.addMouseListener(escucha);
+
+            if (e.getSource() == dado1) {
+                //dado1.addMouseListener(escucha);
                 panelActivos.remove(dado1);
                 panelInactivos.add(dado1);
-
+                panelInactivos.removeAll();
+                revalidate();
+                repaint();
             }
-            else {
+            else{
                 if (e.getSource() == dado2 && e.getClickCount() == 2) {
                     dado1.addMouseListener(escucha);
                     panelActivos.remove(dado2);
                     panelInactivos.add(dado2);
+
+                    revalidate();
+                    repaint();
                 }else{
                     if(e.getSource() == dado3 && e.getClickCount() == 2){
                         dado1.addMouseListener(escucha);
                         panelActivos.remove(dado3);
                         panelInactivos.add(dado3);
+                        revalidate();
+                        repaint();
                     }else{
                         if(e.getSource() == dado4 && e.getClickCount() == 2){
                             dado1.addMouseListener(escucha);
                             panelActivos.remove(dado4);
                             panelInactivos.add(dado4);
+
+                            revalidate();
+                            repaint();
                         }else{
                             if(e.getSource() == dado5 && e.getClickCount() == 2){
                                 dado1.addMouseListener(escucha);
                                 panelActivos.remove(dado5);
                                 panelInactivos.add(dado5);
+
+                                revalidate();
+                                repaint();
 
                             }else{
                                 if(e.getSource() == dado6 && e.getClickCount() == 2){
@@ -323,11 +352,16 @@ public class GUI extends JFrame {
                                     panelActivos.remove(dado6);
                                     panelInactivos.add(dado6);
 
+                                    revalidate();
+                                    repaint();
+
                                 }else{
                                     if(e.getSource() == dado7 && e.getClickCount() == 2){
                                         dado1.addMouseListener(escucha);
                                         panelActivos.remove(dado7);
                                         panelInactivos.add(dado7);
+                                        revalidate();
+                                        repaint();
 
                                     }else{
                                         if(e.getSource() == dado8 && e.getClickCount() == 2){
@@ -335,17 +369,26 @@ public class GUI extends JFrame {
                                             panelActivos.remove(dado8);
                                             panelInactivos.add(dado8);
 
+                                            revalidate();
+                                            repaint();
+
                                         }else{
                                             if(e.getSource() == dado9 && e.getClickCount() == 2){
                                                 dado1.addMouseListener(escucha);
                                                 panelActivos.remove(dado9);
                                                 panelInactivos.add(dado9);
 
+                                                revalidate();
+                                                repaint();
+
                                             }else{
                                                 if(e.getSource() == dado10 && e.getClickCount() == 2){
                                                     dado1.addMouseListener(escucha);
                                                     panelActivos.remove(dado10);
                                                     panelInactivos.add(dado10);
+
+                                                    revalidate();
+                                                    repaint();
                                                 }
                                         }
                                     }
@@ -356,6 +399,8 @@ public class GUI extends JFrame {
                 }
             }
         }
+            revalidate();
+            repaint();
         }
 
 

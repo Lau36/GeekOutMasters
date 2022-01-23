@@ -1,6 +1,4 @@
 package myProject;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * ModelGeek
@@ -10,16 +8,16 @@ import java.util.Scanner;
  * @version v.1.0.0 date 11/01/2022
  */
 public class ModelGeek {
-    private static Dados dado1;
-    private static Dados dado2;
-    private static Dados dado3;
-    private static Dados dado4;
-    private static Dados dado5;
-    private static Dados dado6;
-    private static Dados dado7;
-    private static Dados dado8;
-    private static Dados dado9;
-    private static Dados dado10;
+    private static Dado dado1;
+    private static Dado dado2;
+    private static Dado dado3;
+    private static Dado dado4;
+    private static Dado dado5;
+    private static Dado dado6;
+    private static Dado dado7;
+    private static Dado dado8;
+    private static Dado dado9;
+    private static Dado dado10;
 
 
     private String[] activos;
@@ -35,23 +33,23 @@ public class ModelGeek {
      * Class Constructor
      */
     public ModelGeek() {
-        dado1 = new Dados();
-        dado2 = new Dados();
-        dado3 = new Dados();
-        dado4 = new Dados();
-        dado5 = new Dados();
-        dado6 = new Dados();
-        dado7 = new Dados();
-        dado8 = new Dados();
-        dado9 = new Dados();
-        dado10 = new Dados();
+        dado1 = new Dado();
+        dado2 = new Dado();
+        dado3 = new Dado();
+        dado4 = new Dado();
+        dado5 = new Dado();
+        dado6 = new Dado();
+        dado7 = new Dado();
+        dado8 = new Dado();
+        dado9 = new Dado();
+        dado10 = new Dado();
 
-        //dados = new int [10];
+        dados = new int [10];
         carasDados = new int [10];
         activos = new String[7];
         inactivos = new String[3];
+        numeroRonda = 0;
 
-        flag = 0;
     }
     public void calcularCara(){
         carasDados[0]= dado1.getCara();
@@ -72,11 +70,36 @@ public class ModelGeek {
         return carasDados;
     }
 
+    public int asignarCaraContraria(){
+        if(carasDados[0]==1){
+            return 6;
+        }else{
+            if(carasDados[1]==2){
+                return 5;
+            }else{
+                if(carasDados[2]==3){
+                    return 4;
+                }else{
+                    if(carasDados[3]==4){
+                        return 3;
+                    }else{
+                        if(carasDados[4]==5){
+                            return 2;
+                        }
+                        }
+                    }
+                }
+            }
+         return 6;
+        }
+
+
     public void meeple(){
         if(carasDados[0]==3){
             //relanza un dado
         }
     }
+
 
     public void superHeroe(){
         if(carasDados[0]==5){
@@ -104,10 +127,26 @@ public class ModelGeek {
 
     }
     public void calcularPunto(){
+        puntaje = 0;
+
 
     }
     public void calcularRonda(){
 
+        for (numeroRonda = 0; numeroRonda < 5; numeroRonda++)
+        {
+            //colocar si el arreglo de dados Activos es 0 entonces que la ronda sume 1
+            //la ronda es (numeroRonda<5) y va a ir aumentando
+        }
+
+    }
+
+    public int getPuntaje(){
+        return puntaje;
+    }
+
+    public int getRonda(){
+        return numeroRonda;
     }
 }
 

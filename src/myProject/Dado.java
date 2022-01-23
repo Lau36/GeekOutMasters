@@ -9,21 +9,55 @@ import java.util.Random;
  * @version v.1.0.0 date 11/01/2022
  */
 
-public class Dados {
-    private int carasDados;
-    private int[] caras;
+public class Dado {
+    private int cara;
 
+    public Dado(){
+        cara = generarCara();
+    }
     /**
      * Method to generate a random value to caraAleatorio
      * @version v.1.0.0 date 11/01/2021
      */
-    public int getCara (){
+    public int generarCara (){
         Random aleatorio = new Random();
-        carasDados = aleatorio.nextInt(6) + 1;
-        return carasDados;
+        cara = aleatorio.nextInt(6) + 1;
+        return cara;
     }
 
-       public String caras () {
+    public void invertirCara(){
+        if (cara == 1){
+            cara = 6;
+        } else if(cara == 2){
+            cara = 5;
+        }else if (cara == 3){
+            cara = 4;
+        }else if (cara == 6){
+            cara = 1;
+        }else if (cara == 5){
+            cara = 2;
+        }else if (cara == 4){
+            cara = 3;
+        }
+
+        }
+        public Dado relanzar(){
+            return new Dado();
+        }
+
+    public int getCara(){
+        return cara;
+    }
+
+    }
+
+
+
+
+
+
+
+       /*public String caras () {
             switch (carasDados) {
                 case 1:
                     carasDados = 1;
@@ -52,10 +86,10 @@ public class Dados {
                     return "meeple";
             }
             return "error";
-        }
+        }*/
 
 
-    public String getCaraContraria()
+    /*public String getCaraContraria()
     {
         if (carasDados==1)
         {
@@ -76,7 +110,4 @@ public class Dados {
         else{
             return "cohete";
         }
-    }
-
-
-}
+    }*/
