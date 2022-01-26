@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 
 
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -49,11 +50,14 @@ public class GUI extends JFrame {
     //private JTextArea mensajeRonda, mensajePuntaje;
     private Escucha escucha;
     private Partida partida;
+    private Zona inactivos;
+    private Zona activos;
+    private Zona utilizados;
+    private Zona puntaje;
+    private ModelGeek modelGeek;
 
     static Scanner scanner =  new Scanner(System.in);
 
-
-    private ModelGeek modelGeek;
 
 
     /**
@@ -371,17 +375,84 @@ public class GUI extends JFrame {
             dado10.addMouseListener(escucha);
 
             Dado dado1= new Dado();
-            Dado dado2= new Dado();
+
+
+            Partida partida = new Partida();
+            //Se activa el poder del 42
+
+            if (e.getSource() == dado1 && e.getClickCount() == 1 ) {
+                if(dado1.getCara()==6){
+                    partida.activar42(dado1);
+                    Zona puntajeP = new Zona("Zona puntaje:",0);
+                    puntajeP.calcularPuntaje();
+                }
+            } else if(e.getSource() == dado2 && e.getClickCount() == 1 ){
+                Dado dado2 = new Dado();
+                if(dado2.getCara()==6){
+                    partida.activar42(dado2);
+                    partida.getPuntaje().calcularPuntaje();
+                }
+            }
+            else if(e.getSource() == dado3 && e.getClickCount() == 1 ){
+                Dado dado3 = new Dado();
+                if(dado3.getCara()==6){
+                    partida.activar42(dado1);
+                    partida.getPuntaje().calcularPuntaje();
+                }
+            }
+            else if(e.getSource() == dado4 && e.getClickCount() == 1){
+                if(dado1.getCara()==6){
+                    partida.activar42(dado1);
+                    partida.getPuntaje().calcularPuntaje();
+                }
+
+            }
+            else if(e.getSource() == dado5 && e.getClickCount() == 1){
+                if(dado1.getCara()==6){
+                    partida.activar42(dado1);
+                    partida.getPuntaje().calcularPuntaje();
+                }
+
+            }
+            else if(e.getSource() == dado6 && e.getClickCount() == 1){
+                if(dado1.getCara()==6){
+                    partida.activar42(dado1);
+                    partida.getPuntaje().calcularPuntaje();
+                }
+
+            }
+            else if(e.getSource() == dado6 && e.getClickCount() == 1){
+                if(dado1.getCara()==6){
+                    partida.activar42(dado1);
+                    partida.getPuntaje().calcularPuntaje();
+                }
+
+            }
+            else if(e.getSource() == dado6 && e.getClickCount() == 1){
+                if(dado1.getCara()==6){
+                    partida.activar42(dado1);
+                    partida.getPuntaje().calcularPuntaje();
+                }
+
+            }
+            else if(e.getSource() == dado6 && e.getClickCount() == 1){
+                if(dado1.getCara()==6){
+                    partida.activar42(dado1);
+                    partida.getPuntaje().calcularPuntaje();
+                }
+
+            }
+            else if(e.getSource() == dado6 && e.getClickCount() == 1){
+                if(dado1.getCara()==6){
+                    partida.activar42(dado1);
+                    partida.getPuntaje().calcularPuntaje();
+                }
+
+            }
 
 
 
-            if (e.getSource() == dado1 && e.getClickCount() == 1 && dado1.getCara() == 1) {
-                int[] cara = modelGeek.getCaras();
-
-                int dadoSelecionado = scanner.nextInt();
-                Dado dadoSeleccionado = activos.get(dadoSelecionado-1);
-
-            }else if(dado1.getCara()==2){
+            /*else if(dado1.getCara()==2){
                    partida.activarDragon(dado1);
 
                }else if(dado1.getCara()==3){
@@ -651,7 +722,7 @@ public class GUI extends JFrame {
                     partida.getPuntaje().calcularPuntaje();
                 }
 
-            }
+            }*/
 
 
             }
