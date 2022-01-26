@@ -8,7 +8,7 @@ public class Partida {
     private int puntajeGlobal;
     private int ronda;
 
-    private Partida(){
+    public Partida(){
         activos = new Zona("Dados activos",7);
         inactivos = new Zona("Dados inactivos",3);
         utilizados = new Zona("Dados utilizados",0);
@@ -41,7 +41,9 @@ public class Partida {
 
     public void activarMeeple(Dado dadoMeeple, Dado dadoSeleccionado){
         activos.moverDado(dadoMeeple,activos, utilizados);
-        dadoSeleccionado.relanzar();
+        int pos = activos.getDados().indexOf(dadoSeleccionado);
+        dadoSeleccionado = dadoSeleccionado.relanzar();
+        activos.getDados().set(pos, dadoSeleccionado);
     }
 
     public void activarSuperHeroe(Dado dadoSuperHeroe, Dado dadoSeleccionado){
@@ -51,7 +53,9 @@ public class Partida {
     public void activarCorazon(Dado dadoCorazon, Dado dadoSeleccionado){
         activos.moverDado(dadoCorazon, activos, utilizados);
         inactivos.moverDado(dadoSeleccionado, inactivos, activos);
-        dadoSeleccionado.relanzar();
+        activos.getDados().remove(dadoSeleccionado);
+        dadoSeleccionado = dadoSeleccionado.relanzar();
+        activos.getDados().add(dadoSeleccionado);
     }
     public void activarDragon(Dado dadoDragon){
         activos.moverDado(dadoDragon, activos, utilizados);
@@ -60,11 +64,10 @@ public class Partida {
     public void activarCohete(Dado dadoCohete, Dado dadoSeleccionado){
         activos.moverDado(dadoCohete, activos, utilizados);
         activos.moverDado(dadoSeleccionado, activos, inactivos);
-
     }
     public void activar42(Dado dado42){
         activos.moverDado(dado42, activos, puntaje);
-        puntaje.calcularPuntaje();
+        //puntaje.calcularPuntaje();
     }
 
     public void finalizarRonda(){

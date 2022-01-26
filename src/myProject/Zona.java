@@ -22,12 +22,12 @@ public class Zona {
             dados.add(dado);
 
         }
-
     }
 
     public ArrayList<Dado> getDados() {
         return dados;
     }
+
     public String getNombre() {
         return nombre;
     }
@@ -36,7 +36,6 @@ public class Zona {
         zonaActual.getDados().remove(dado);
         nuevaZona.getDados().add(dado);
         calcularPuntaje();
-
     }
 
     public int calcularPuntaje(){
@@ -52,5 +51,11 @@ public class Zona {
         dados = new ArrayList<Dado>(0);
     }
 
-
+    @Override
+    public String toString() {
+        return "Zona{" +
+                "nombre='" + nombre + '\'' +
+                ", dados=" + dados +
+                '}';
+    }
 }

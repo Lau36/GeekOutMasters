@@ -41,73 +41,14 @@ public class Dado {
         }
 
         }
-        public Dado relanzar(){
-            return new Dado();
-        }
+
+    public Dado relanzar(){
+        return new Dado();
+    }
 
     public int getCara(){
         return cara;
     }
 
-    }
+}
 
-
-
-
-
-
-
-       /*public String caras () {
-            switch (carasDados) {
-                case 1:
-                    carasDados = 1;
-                    return "cohete";
-
-                case 2:
-                    carasDados = 2;
-                    return "superheroe";
-
-                case 3:
-                    carasDados = 3;
-                    return "42";
-
-                case 4:
-                    carasDados = 4;
-                    return "corazon";
-
-
-                case 5:
-                    carasDados = 5;
-                    return "dragon";
-
-
-                case 6:
-                    carasDados = 6;
-                    return "meeple";
-            }
-            return "error";
-        }*/
-
-
-    /*public String getCaraContraria()
-    {
-        if (carasDados==1)
-        {
-            return "meeple";
-        }
-        if(carasDados==2){
-            return "dragon";
-        }
-        if (carasDados==3){
-            return "corazon";
-        }
-        if (carasDados==4){
-            return "42";
-        }
-        if (carasDados==5){
-            return "superheroe";
-        }
-        else{
-            return "cohete";
-        }
-    }*/
