@@ -1,4 +1,6 @@
-package myProject;
+package myProject.testClases;
+
+import myProject.Dado;
 
 public class TestDado {
 

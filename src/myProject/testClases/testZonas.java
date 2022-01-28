@@ -1,5 +1,8 @@
-package myProject;
+package myProject.testClases;
 
+
+import myProject.Dado;
+import myProject.Zona;
 
 import java.util.ArrayList;
 

@@ -19,7 +19,7 @@ public class Dado {
      * Method to generate a random value to caraAleatorio
      * @version v.1.0.0 date 11/01/2021
      */
-    public int generarCara (){
+    public int generarCara(){
         Random aleatorio = new Random();
         cara = aleatorio.nextInt(6) + 1;
         return cara;
