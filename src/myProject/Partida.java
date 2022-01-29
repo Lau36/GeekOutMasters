@@ -3,12 +3,13 @@ package myProject;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 /**
  * Clase partida donde aplica todas las reglas del juego y zonas
- * @authors
- * Laura Jaimes, laura.jaimes@correounivalle.edu.co, 2040430-3743
- * Esteban Hernandez, esteban.cortes@correounivalle.edu.co, 2042817 - 3743
+ *
  * @version v.1.0.0 date 23/01/2022
+ * @authors Laura Jaimes, laura.jaimes@correounivalle.edu.co, 2040430-3743
+ * Esteban Hernandez, esteban.cortes@correounivalle.edu.co, 2042817 - 3743
  */
 
 public class Partida {
@@ -19,6 +20,7 @@ public class Partida {
     private int puntajeGlobal;
     private int ronda;
 
+
     /**
      * Class Constructor
      */
@@ -27,11 +29,12 @@ public class Partida {
         inactivos = new Zona("Dados inactivos", 3);
         utilizados = new Zona("Dados utilizados", 0);
         puntaje = new Zona("Puntaje", 0);
-        ronda = 1;
+        ronda = 0;
     }
 
     /**
      * Getter de la zona activos
+     *
      * @version v.1.0.0 date 23/01/2021
      */
     public Zona getActivos() {
@@ -40,8 +43,8 @@ public class Partida {
 
     /**
      * Getter de la zona inactivos
-     * @version v.1.0.0 date 23/01/2021
      * @return inactivos
+     * @version v.1.0.0 date 23/01/2021
      */
     public Zona getInactivos() {
         return inactivos;
@@ -49,8 +52,8 @@ public class Partida {
 
     /**
      * Getter de la zona utilizados
-     * @version v.1.0.0 date 23/01/2021
      * @return utilizados
+     * @version v.1.0.0 date 23/01/2021
      */
     public Zona getUtilizados() {
         return utilizados;
@@ -58,8 +61,8 @@ public class Partida {
 
     /**
      * Getter del puntaje
-     * @version v.1.0.0 date 23/01/2021
      * @return puntaje
+     * @version v.1.0.0 date 23/01/2021
      */
     public Zona getPuntaje() {
         return puntaje;
@@ -67,10 +70,11 @@ public class Partida {
 
     /**
      * Getter de la ronda
-     * @version v.1.0.0 date 23/01/2021
      * @return ronda
+     * @version v.1.0.0 date 23/01/2021
      */
     public int getRonda() {
+
         return ronda;
     }
 
@@ -78,8 +82,9 @@ public class Partida {
      * Aumenta la ronda a partir de la ronda
      * @version v.1.0.0 date 23/01/2021
      */
-    public void aumentarRonda() {
+    public int aumentarRonda() {
         ronda = ronda + 1;
+        return ronda;
     }
 
     /**
@@ -87,14 +92,13 @@ public class Partida {
      * @version v.1.0.0 date 23/01/2021
 
     public void activarMeeple(Dado dadoMeeple, Dado dadoSeleccionado) {
-        activos.moverDado(dadoMeeple, activos, utilizados);
-        int pos = activos.getDados().indexOf(dadoSeleccionado);
-        dadoSeleccionado = dadoSeleccionado.relanzar();
-        activos.getDados().set(pos, dadoSeleccionado);
+    activos.moverDado(dadoMeeple, activos, utilizados);
+    int pos = activos.getDados().indexOf(dadoSeleccionado);
+    dadoSeleccionado = dadoSeleccionado.relanzar();
+    activos.getDados().set(pos, dadoSeleccionado);
     }*/
 
     /**
-     *
      * @version v.1.0.0 date 23/01/2021
      */
     public void activarSuperHeroe(Dado dadoSuperHeroe, Dado dadoSeleccionado) {
@@ -103,7 +107,6 @@ public class Partida {
     }
 
     /**
-     *
      * @version v.1.0.0 date 23/01/2021
      */
     public void activarCorazon(Dado dadoCorazon, Dado dadoSeleccionado) {
@@ -115,24 +118,7 @@ public class Partida {
     }
 
     /**
-     *
-     * @version v.1.0.0 date 23/01/2021
-
-    public void activarDragon(Dado dadoDragon) {
-        activos.moverDado(dadoDragon, activos, utilizados);
-        puntaje.reiniciarPuntaje();
-    }*/
-
-    /**
-     *
-     * @version v.1.0.0 date 23/01/2021
-
-    public void activarCohete(Dado dadoCohete, Dado dadoSeleccionado) {
-        activos.moverDado(dadoCohete, activos, utilizados);
-        activos.moverDado(dadoSeleccionado, activos, inactivos);
-    }*/
-
-    /**
+     * Establece el poder de la cara 42
      *
      * @version v.1.0.0 date 23/01/2021
      */
@@ -143,6 +129,7 @@ public class Partida {
 
     /**
      * Establece los valores iniciales a las diferentes zonas y aumenta la ronda
+     *
      * @version v.1.0.0 date 23/01/2021
      */
     public void finalizarRonda() {
@@ -156,38 +143,11 @@ public class Partida {
         }
     }
 
-    /**
-     *
-     * @version v.1.0.0 date 23/01/2021
-     */
-    public int calcular() {
-        Scanner scanner = new Scanner(System.in);
-        Partida partida = new Partida();
-        ArrayList<Dado> activos = partida.getActivos().getDados();
-        ArrayList<Dado> inactivos = partida.getInactivos().getDados();
-        ArrayList<Dado> utilizados = partida.getUtilizados().getDados();
-        ModelGeek modelGeek = new ModelGeek();
-        int suma = 0;
-        int[] PUNTAJES = {1, 3, 6, 10, 15, 21, 28, 36, 45, 55};
-        int puntaje = 0;
-        for (int i = 0; i < activos.size(); i++) {
-            if (activos.get(i).getCara() == 6) {
-                suma = suma + 1;
-                System.out.println(activos.get(i).getCara());
-                System.out.println(("suma:" + suma));
-
-            }
-        }
-        for (int i = 0; i < suma; i++) {
-            puntaje = puntaje + PUNTAJES[i];
-            System.out.println(("puntaje:" + puntaje));
-
-        }
-        return puntaje;
-    }
 
     /**
+     * Establece el valor que le da el usuario de la cantidad de dados 42 y calcula el puntaje
      *
+     * @return frase de terminado
      * @version v.1.0.0 date 23/01/2021
      */
     public String calculoP() {
@@ -195,65 +155,81 @@ public class Partida {
         if (numero == 0) {
             int resultado = 0;
             JOptionPane.showMessageDialog(null, "Tu puntaje es: " + resultado);
+            return "0";
+
         } else if (numero == 1) {
             int resultado = 1;
             JOptionPane.showMessageDialog(null, "Tu puntaje es: " + resultado);
+            return "1";
         } else if (numero == 2) {
             int resultado = 4;
             JOptionPane.showMessageDialog(null, "Tu puntaje es: " + resultado);
+            return "4";
 
 
         } else if (numero == 3) {
             int resultado = 10;
             JOptionPane.showMessageDialog(null, "Tu puntaje es: " + resultado);
+            return "10";
 
 
         } else if (numero == 4) {
             int resultado = 20;
             JOptionPane.showMessageDialog(null, "Tu puntaje es: " + resultado);
+            return "20";
 
         } else if (numero == 5) {
             int resultado = 35;
             JOptionPane.showMessageDialog(null, "Tu puntaje es: " + resultado);
+            return "35";
 
         } else if (numero == 6) {
             int resultado = 56;
             JOptionPane.showMessageDialog(null, "Tu puntaje es: " + resultado);
+            return "56";
 
         } else if (numero == 7) {
             int resultado = 84;
             JOptionPane.showMessageDialog(null, "Tu puntaje es: " + resultado);
+            return "84";
 
         } else if (numero == 8) {
             int resultado = 120;
             JOptionPane.showMessageDialog(null, "Tu puntaje es: " + resultado);
+            return "120";
 
         } else if (numero == 9) {
             int resultado = 165;
             JOptionPane.showMessageDialog(null, "Tu puntaje es: " + resultado);
+            return "165";
 
         } else if (numero == 10) {
             int resultado = 220;
             JOptionPane.showMessageDialog(null, "Tu puntaje es: " + resultado);
+            return "220";
         }
         return "calculado";
     }
 
     /**
+     * Establece que dado quiere seleccionar el usuario para relanzar
      *
+     * @return el dado seleccionado por el usuario
      * @version v.1.0.0 date 23/01/2021
      */
-    public int dadoSelec(){
+    public int dadoSelec() {
         int dadosele = Integer.parseInt(JOptionPane.showInputDialog(null, "Dado a relanzar", "", JOptionPane.QUESTION_MESSAGE));
         return dadosele;
 
     }
 
     /**
+     * Establece que dado quiere seleccionar el usuario para cambiar de zona
      *
+     * @return el dado seleccionado por el usuario
      * @version v.1.0.0 date 23/01/2021
      */
-    public int dadoSelecS(){
+    public int dadoSelecS() {
         int dadosele = Integer.parseInt(JOptionPane.showInputDialog(null, "Dado a cambiar", "", JOptionPane.QUESTION_MESSAGE));
         return dadosele;
     }

@@ -1,12 +1,13 @@
 package myProject;
 
 import java.util.ArrayList;
+
 /**
  * Clase que calcula las distintas zonas del juego, ya sea activos, inactivos, utilizados o puntaje
- * @authors
- * Laura Jaimes, laura.jaimes@correounivalle.edu.co, 2040430-3743
- * Esteban Hernandez, esteban.cortes@correounivalle.edu.co, 2042817 - 3743
+ *
  * @version v.1.0.0 date 22/01/2022
+ * @authors Laura Jaimes, laura.jaimes@correounivalle.edu.co, 2040430-3743
+ * Esteban Hernandez, esteban.cortes@correounivalle.edu.co, 2042817 - 3743
  */
 
 public class Zona {
@@ -34,8 +35,9 @@ public class Zona {
 
     /**
      * Establece el nombre
-     * @version v.1.0.0 date 23/01/2021
+     *
      * @return el nombre que se establece
+     * @version v.1.0.0 date 23/01/2021
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -43,8 +45,9 @@ public class Zona {
 
     /**
      * Es un arreglo de dados
-     * @version v.1.0.0 date 23/01/2021
+     *
      * @return los dados
+     * @version v.1.0.0 date 23/01/2021
      */
     public ArrayList<Dado> getDados() {
         return dados;
@@ -52,8 +55,9 @@ public class Zona {
 
     /**
      * Getter del nombre
-     * @version v.1.0.0 date 23/01/2021
+     *
      * @return el nombre que se establece
+     * @version v.1.0.0 date 23/01/2021
      */
     public String getNombre() {
         return nombre;
@@ -61,6 +65,7 @@ public class Zona {
 
     /**
      * Mueve los dados de la zona donde se encuentran para una nueva y a su vez calcula el puntaje
+     *
      * @version v.1.0.0 date 23/01/2021
      */
     public void moverDado(Dado dado, Zona zonaActual, Zona nuevaZona) {
@@ -69,25 +74,14 @@ public class Zona {
         calcularPuntaje();
     }
 
-    /**
-     *
-     * @version v.1.0.0 date 23/01/2021
-     */
-    public int calcularArreglo() {
-        for (int i = 0; i < modelGeek.getCaras()[i]; i++) {
-            if (modelGeek.getCaras()[i] == 6) {
-                suma = suma + 1;
-            }
-        }
-        return suma;
-    }
 
     /**
+     * Establece el valor del puntaje sobre la cantidad de dados 42
      *
      * @version v.1.0.0 date 24/01/2021
      */
     public int calcularPuntaje() {
-        for (int i = 0; i < suma; i++) {
+        for (int i = 0; i < dados.size(); i++) {
             puntaje = puntaje + PUNTAJES[i];
         }
         return puntaje;
@@ -95,6 +89,7 @@ public class Zona {
 
     /**
      * Reinicia el puntaje cuando no hay dados en el array
+     *
      * @version v.1.0.0 date 24/01/2021
      */
     public void reiniciarPuntaje() {

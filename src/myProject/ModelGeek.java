@@ -1,13 +1,13 @@
 package myProject;
 
-    /**
-    * ModelGeek
-    *
-    * @version v.1.0.0 date 11/01/2022
-    * @authors Laura Jaimes, laura.jaimes@correounivalle.edu.co, 2040430-3743
-    * Esteban Hernandez, esteban.cortes@correounivalle.edu.co, 2042817 - 3743
-    * */
-    public class ModelGeek {
+/**
+ * ModelGeek
+ *
+ * @version v.1.0.0 date 11/01/2022
+ * @authors Laura Jaimes, laura.jaimes@correounivalle.edu.co, 2040430-3743
+ * Esteban Hernandez, esteban.cortes@correounivalle.edu.co, 2042817 - 3743
+ */
+public class ModelGeek {
     private static Dado dado1;
     private static Dado dado2;
     private static Dado dado3;
@@ -20,12 +20,11 @@ package myProject;
     private static Dado dado10;
 
 
-
     private int[] carasDados;
 
     /**
-    * * Class Constructor
-    */
+     * * Class Constructor
+     */
     public ModelGeek() {
         dado1 = new Dado();
         dado2 = new Dado();
@@ -40,9 +39,10 @@ package myProject;
 
         carasDados = new int[10];
     }
+
     /**
-    * Calcula el valor de una cara y se lo añade al arreglo
-    */
+     * Calcula el valor de una cara y se lo añade al arreglo
+     */
     public void calcularCara() {
         carasDados[0] = dado1.getCara();
         carasDados[1] = dado2.getCara();
@@ -58,9 +58,10 @@ package myProject;
     }
 
     /**
-    * Establece el valor de la cara en el arreglo
-    * @return cara del dado
-    */
+     * Establece el valor de la cara en el arreglo
+     *
+     * @return cara del dado
+     */
     public int[] getCaras() {
         return carasDados;
     }

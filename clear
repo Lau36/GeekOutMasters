@@ -1,0 +1,18 @@
+* [1;34mfd0c05d[m - [1;32m(11 seconds ago)[m [37mSe terminaron de añadir los poderes y la documentacion de ciertas funciones[m [2;37m- Esteban Andres Hernandez Cortes[m[1;33m (HEAD -> modelGeek)[m
+* [1;34mbb76866[m - [1;32m(24 hours ago)[m [37mse añadió el boton calcular puntaje con sus funcionalidades, se añadio la funcionalidad al poder 42 y dragon[m [2;37m- Esteban Andres Hernandez Cortes[m[1;33m[m
+* [1;34m33c683b[m - [1;32m(2 days ago)[m [37mSe hicieron ciertas pruebas para los poderes y el puntaje[m [2;37m- Esteban Andres Hernandez Cortes[m[1;33m[m
+* [1;34m837875c[m - [1;32m(3 days ago)[m [37mse comenzó el proceso de enlazar el model con el GUI[m [2;37m- Esteban Andres Hernandez Cortes[m[1;33m[m
+* [1;34mc0a6b76[m - [1;32m(5 days ago)[m [37mrealizacion de logica del juego, se añadieron 2 clases,partida y zona con su respectivos metodos[m [2;37m- Laura Jaimes 2040430[m[1;33m (origin/modelGeek)[m
+* [1;34m9276536[m - [1;32m(12 days ago)[m [37mSe añadieron ciertas funciones al boton lanzar, tambien a los dados y se coloco el esquema de las funciones de la clase Model[m [2;37m- Laura Jaimes 2040430[m[1;33m[m
+* [1;34me5c964b[m - [1;32m(2 weeks ago)[m [37mCambios a la clase Model[m [2;37m- Laura Jaimes 2040430[m[1;33m[m
+* [1;34m67160af[m - [1;32m(2 weeks ago)[m [37mSe añadio un arreglo para la elliminacion de 3 dados[m [2;37m- Laura Jaimes 2040430[m[1;33m[m
+* [1;34m2402707[m - [1;32m(2 weeks ago)[m [37mPrimeros arreglos de la clase ModelGeek[m [2;37m- Laura Jaimes 2040430[m[1;33m[m
+[31m|[m * [1;34m03db16f[m - [1;32m(2 days ago)[m [37mSe pasaron ciertas lineas de codigo que se tenia en el model[m [2;37m- Esteban Andres Hernandez Cortes[m[1;33m (Dados)[m
+[31m|[m[31m/[m  
+* [1;34m8237e88[m - [1;32m(2 weeks ago)[m [37mActualizacion de clase Dados con el constructor[m [2;37m- Laura Jaimes 2040430[m[1;33m (origin/Dados)[m
+[32m|[m * [1;34me648d64[m - [1;32m(12 days ago)[m [37mSe añadieron ciertos cambios minimos a la clase GUI[m [2;37m- Laura Jaimes 2040430[m[1;33m (master)[m
+[32m|[m * [1;34m0764120[m - [1;32m(2 weeks ago)[m [37mSe añadieron los 10 dados al panel de dados activos[m [2;37m- Laura Jaimes 2040430[m[1;33m[m
+[32m|[m * [1;34m6c410e9[m - [1;32m(2 weeks ago)[m [37mSe agregaron los paneles, botones a la ventana y se agrego la funcion de dos de ellos[m [2;37m- Laura Jaimes 2040430[m[1;33m[m
+[32m|[m * [1;34me972571[m - [1;32m(2 weeks ago)[m [37mPrimeros cambios en la clase GUI[m [2;37m- Laura Jaimes 2040430[m[1;33m[m
+[32m|[m[32m/[m  
+* [1;34me15485c[m - [1;32m(2 weeks ago)[m [37mcreacion del proyecto y las clases[m [2;37m- Laura Jaimes 2040430[m[1;33m (origin/master)[m
