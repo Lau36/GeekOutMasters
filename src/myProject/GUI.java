@@ -351,6 +351,8 @@ public class GUI extends JFrame {
                 dado10.setIcon(imageDado);
                 revalidate();
                 repaint();
+                mensajeRonda.setBorder(BorderFactory.createTitledBorder("Ronda: \n" + partida.aumentarRonda()));
+
 
             } else if (e.getSource() == carasOpuestas) {
                 JOptionPane.showMessageDialog(null, MENSAJE_CARAS);
@@ -359,22 +361,54 @@ public class GUI extends JFrame {
                 System.exit(0);
             } else if (e.getSource() == botonPuntaje) {
                 partida.calculoP();
-            } else if (e.getSource() == finalizarRonda) {
+            }
+            if (e.getSource() == finalizarRonda) {
                 panelPuntaje.removeAll();
                 panelInactivos.removeAll();
                 panelActivos.removeAll();
                 panelUtilizados.removeAll();
-                dado1.setIcon(imageDados);
-                dado2.setIcon(imageDados);
-                dado3.setIcon(imageDados);
-                dado4.setIcon(imageDados);
-                dado5.setIcon(imageDados);
-                dado6.setIcon(imageDados);
-                dado7.setIcon(imageDados);
-                dado8.setIcon(imageDados);
-                dado9.setIcon(imageDados);
-                dado10.setIcon(imageDados);
-
+                modelGeek.calcularCara();
+                int[] caraDados = modelGeek.getCaras();
+                imageDado = new ImageIcon(getClass().getResource("/resources/" + caraDados[0] + ".png"));
+                dado1.setIcon(imageDado);
+                revalidate();
+                repaint();
+                imageDado = new ImageIcon(getClass().getResource("/resources/" + caraDados[1] + ".png"));
+                dado2.setIcon(imageDado);
+                revalidate();
+                repaint();
+                imageDado = new ImageIcon(getClass().getResource("/resources/" + caraDados[2] + ".png"));
+                dado3.setIcon(imageDado);
+                revalidate();
+                repaint();
+                imageDado = new ImageIcon(getClass().getResource("/resources/" + caraDados[3] + ".png"));
+                dado4.setIcon(imageDado);
+                revalidate();
+                repaint();
+                imageDado = new ImageIcon(getClass().getResource("/resources/" + caraDados[4] + ".png"));
+                dado5.setIcon(imageDado);
+                revalidate();
+                repaint();
+                imageDado = new ImageIcon(getClass().getResource("/resources/" + caraDados[5] + ".png"));
+                dado6.setIcon(imageDado);
+                revalidate();
+                repaint();
+                imageDado = new ImageIcon(getClass().getResource("/resources/" + caraDados[6] + ".png"));
+                dado7.setIcon(imageDado);
+                revalidate();
+                repaint();
+                imageDado = new ImageIcon(getClass().getResource("/resources/" + caraDados[7] + ".png"));
+                dado8.setIcon(imageDado);
+                revalidate();
+                repaint();
+                imageDado = new ImageIcon(getClass().getResource("/resources/" + caraDados[8] + ".png"));
+                dado9.setIcon(imageDado);
+                revalidate();
+                repaint();
+                imageDado = new ImageIcon(getClass().getResource("/resources/" + caraDados[9] + ".png"));
+                dado10.setIcon(imageDado);
+                revalidate();
+                repaint();
                 dado1.add(panelActivos);
                 dado2.add(panelActivos);
                 dado3.add(panelActivos);
@@ -398,11 +432,10 @@ public class GUI extends JFrame {
                     panelPuntaje.add(dado1);
                     repaint();
                     revalidate();
-                    mensajePuntaje.setBorder(BorderFactory.createTitledBorder("Puntaje global: \n" + partida.calcular()));
+                    mensajePuntaje.setBorder(BorderFactory.createTitledBorder("Puntaje global: \n" + partida.calculoP()));
                 }
             } else if (e.getSource() == dado2) {
                 int[] caraDados = modelGeek.getCaras();
-
                 if (caraDados[1] == 6) {
                     Dado dado = new Dado();
                     partida.activar42(dado);
@@ -411,7 +444,7 @@ public class GUI extends JFrame {
                     revalidate();
                     repaint();
 
-                    mensajePuntaje.setBorder(BorderFactory.createTitledBorder("Puntaje global: \n" + partida.calcular()));
+                    mensajePuntaje.setBorder(BorderFactory.createTitledBorder("Puntaje global: \n" + partida.calculoP()));
                 }
             } else if (e.getSource() == dado3) {
                 int[] caraDados = modelGeek.getCaras();
@@ -422,8 +455,7 @@ public class GUI extends JFrame {
                     panelPuntaje.add(dado3);
                     revalidate();
                     repaint();
-
-                    mensajePuntaje.setBorder(BorderFactory.createTitledBorder("Puntaje global: \n" + partida.calcular()));
+                    mensajePuntaje.setBorder(BorderFactory.createTitledBorder("Puntaje global: \n" + partida.calculoP()));
                 }
             } else if (e.getSource() == dado4) {
                 int[] caraDados = modelGeek.getCaras();
@@ -436,7 +468,7 @@ public class GUI extends JFrame {
                     repaint();
 
 
-                    mensajePuntaje.setBorder(BorderFactory.createTitledBorder("Puntaje global: \n" + partida.calcular()));
+                    mensajePuntaje.setBorder(BorderFactory.createTitledBorder("Puntaje global: \n" + partida.calculoP()));
                 }
 
             } else if (e.getSource() == dado5) {
@@ -449,7 +481,7 @@ public class GUI extends JFrame {
                     revalidate();
                     repaint();
 
-                    mensajePuntaje.setBorder(BorderFactory.createTitledBorder("Puntaje global: \n" + partida.calcular()));
+                    mensajePuntaje.setBorder(BorderFactory.createTitledBorder("Puntaje global: \n" + partida.calculoP()));
                 }
 
             } else if (e.getSource() == dado6) {
@@ -463,7 +495,7 @@ public class GUI extends JFrame {
                     repaint();
 
 
-                    mensajePuntaje.setBorder(BorderFactory.createTitledBorder("Puntaje global: \n" + partida.calcular()));
+                    mensajePuntaje.setBorder(BorderFactory.createTitledBorder("Puntaje global: \n" + partida.calculoP()));
                 }
 
             } else if (e.getSource() == dado7) {
@@ -476,7 +508,7 @@ public class GUI extends JFrame {
                     revalidate();
                     repaint();
 
-                    mensajePuntaje.setBorder(BorderFactory.createTitledBorder("Puntaje global: \n" + partida.calcular()));
+                    mensajePuntaje.setBorder(BorderFactory.createTitledBorder("Puntaje global: \n" + partida.calculoP()));
                 }
 
             }
@@ -504,7 +536,6 @@ public class GUI extends JFrame {
             } else if (e.getSource() == dado3) {
                 int[] caraDados = modelGeek.getCaras();
                 if (caraDados[2] == 2) {
-
                     panelPuntaje.removeAll();
                     revalidate();
                     repaint();
@@ -555,12 +586,6 @@ public class GUI extends JFrame {
                 modelGeek.calcularCara();
                 if (caraDados[0] == 3) {
 
-                    //imageDado= //newimage icon y la ruta
-                    /*int[] caraDadosu = modelGeek.getCaras();
-                    modelGeek.calcularCara();
-                    imageDadoM = new ImageIcon(getClass().getResource("/resources/" + caraDadosu[1] + ".png"));
-                    dado2.setIcon(imageDadoM);*/
-
                     int dado = partida.dadoSelec();
                     if (dado == 2) {
                         int[] caraDadosu = modelGeek.getCaras();
@@ -569,8 +594,7 @@ public class GUI extends JFrame {
                         panelUtilizados.add(dado1);
                         revalidate();
                         repaint();
-                        imageDadoM = new ImageIcon(getClass().getResource("/resources/" + caraDadosu[1] + ".png"));
-                        dado2.setIcon(imageDadoM);
+                        dado2.setIcon(imageDado);
                         revalidate();
                         repaint();
 
@@ -580,40 +604,35 @@ public class GUI extends JFrame {
                         panelUtilizados.add(dado1);
                         revalidate();
                         repaint();
-                        //imageDadoM = new ImageIcon(getClass().getResource("/resources/" + caraDados[2] + ".png"));
-                        dado3.setIcon(new ImageIcon(getClass().getResource("/resources/" + caraDados[2] + ".png")));
+                        dado3.setIcon(imageDado);
                     }
                     if (dado == 4) {
                         panelActivos.remove(dado1);
                         panelUtilizados.add(dado1);
                         revalidate();
                         repaint();
-                        //imageDadoM = new ImageIcon(getClass().getResource("/resources/" + caraDados[3] + ".png"));
-                        dado4.setIcon(new ImageIcon(getClass().getResource("/resources/" + caraDados[3] + ".png")));
+
+                        dado4.setIcon(imageDado);
                     }
                     if (dado == 5) {
                         panelActivos.remove(dado1);
                         panelUtilizados.add(dado1);
                         revalidate();
                         repaint();
-                        //imageDadoM = new ImageIcon(getClass().getResource("/resources/" + caraDados[4] + ".png"));
-                        dado5.setIcon(new ImageIcon(getClass().getResource("/resources/" + caraDados[4] + ".png")));
+                        dado5.setIcon(imageDado);
                     }
                     if (dado == 6) {
                         panelActivos.remove(dado1);
                         panelUtilizados.add(dado1);
                         revalidate();
                         repaint();
-                        //imageDadoM = new ImageIcon(getClass().getResource("/resources/" + caraDados[5] + ".png"));
-                        dado6.setIcon(new ImageIcon(getClass().getResource("/resources/" + caraDados[5] + ".png")));
+                        dado6.setIcon(imageDado);
                     }
                     if (dado == 7) {
                         panelActivos.remove(dado1);
                         panelUtilizados.add(dado1);
                         revalidate();
                         repaint();
-
-                        //imageDadoM = new ImageIcon(getClass().getResource("/resources/" + caraDados[6] + ".png"));
                         dado7.setIcon(imageDado);
                     }
                 }
@@ -621,8 +640,8 @@ public class GUI extends JFrame {
             if (e.getSource() == dado2) {
                 int[] caraDados = modelGeek.getCaras();
                 if (caraDados[1] == 3) {
-                    /*panelActivos.remove(dado2);
-                    panelUtilizados.add(dado2);*/
+                    panelActivos.remove(dado2);
+                    panelUtilizados.add(dado2);
                     int dado = partida.dadoSelec();
                     if (dado == 1) {
                         panelActivos.remove(dado2);
@@ -630,7 +649,6 @@ public class GUI extends JFrame {
                         revalidate();
                         repaint();
 
-                        //imageDado = new ImageIcon(getClass().getResource("/resources/" + caraDados[0] + ".png"));
                         dado1.setIcon(new ImageIcon(getClass().getResource("/resources/" + caraDados[0] + ".png")));
                     }
                     if (dado == 3) {
@@ -674,7 +692,7 @@ public class GUI extends JFrame {
             }
             if (e.getSource() == dado3) {
                 int[] caraDados = modelGeek.getCaras();
-                if (caraDados[2] == 3){
+                if (caraDados[2] == 3) {
                     panelActivos.remove(dado3);
                     panelUtilizados.add(dado3);
                     imageDado = new ImageIcon(getClass().getResource("/resources/" + caraDados[2] + ".png"));
@@ -828,7 +846,6 @@ public class GUI extends JFrame {
                 }
             }
             if (e.getSource() == dado6) {
-
                 int[] caraDados = modelGeek.getCaras();
                 if (caraDados[3] == 3) {
                     panelActivos.remove(dado6);
@@ -877,8 +894,8 @@ public class GUI extends JFrame {
 
                 int[] caraDados = modelGeek.getCaras();
                 if (caraDados[3] == 3) {
-                    /*panelActivos.remove(dado4);
-                    panelUtilizados.add(dado4);*/
+                    panelActivos.remove(dado4);
+                    panelUtilizados.add(dado4);
 
                     int dado = partida.dadoSelec();
 
@@ -1261,7 +1278,7 @@ public class GUI extends JFrame {
                         panelActivos.remove(dado2);
                         panelInactivos.add(dado2);
                     }
-                    if (dado == 3){
+                    if (dado == 3) {
                         panelActivos.remove(dado7);
                         panelUtilizados.add(dado7);
                         repaint();
@@ -1308,171 +1325,199 @@ public class GUI extends JFrame {
 //----------------Se activa el poder del superHeroe---------------------------------------------------------------------
             if (e.getSource() == dado1) {
                 int[] caraDados = modelGeek.getCaras();
-                if (caraDados[4] == 4){
+                if (caraDados[0] == 5) {
                     panelActivos.remove(dado1);
                     panelUtilizados.add(dado1);
-                    Dado dado1 = new Dado();
-                    Dado dadoSel = new Dado ();
-                    partida.activarSuperHeroe(dado1,dadoSel);
-                    }
+                    revalidate();
+                    repaint();
+                    Dado dado = new Dado();
+                    Dado dadoSeleccionado = new Dado();
+                    partida.activarSuperHeroe(dado, dadoSeleccionado);
                 }
-                if (e.getSource() == dado2) {
-                    int[] caraDados = modelGeek.getCaras();
-                    if(caraDados[0]==1){
-                        panelActivos.remove(dado2);
-                        panelUtilizados.add(dado2);
-                        Dado dado2 = new Dado();
-                        Dado dadoSel = new Dado ();
-                        partida.activarSuperHeroe(dado2,dadoSel);
-                    }
+            }
+            if (e.getSource() == dado2) {
+                int[] caraDados = modelGeek.getCaras();
+                if (caraDados[1] == 5) {
+                    panelActivos.remove(dado2);
+                    panelUtilizados.add(dado2);
+                    revalidate();
+                    repaint();
+                    Dado dado = new Dado();
+                    Dado dadoSeleccionado = new Dado();
+                    partida.activarSuperHeroe(dado, dadoSeleccionado);
+                }
+
+            }
+            if (e.getSource() == dado3) {
+                int[] caraDados = modelGeek.getCaras();
+                if (caraDados[2] == 5) {
+                    panelActivos.remove(dado3);
+                    panelUtilizados.add(dado3);
+                    revalidate();
+                    repaint();
+                    Dado dado = new Dado();
+                    Dado dadoSeleccionado = new Dado();
+                    partida.activarSuperHeroe(dado, dadoSeleccionado);
+                }
+            }
+            if (e.getSource() == dado4) {
+                int[] caraDados = modelGeek.getCaras();
+                if (caraDados[3] == 5) {
+                    panelActivos.remove(dado4);
+                    panelUtilizados.add(dado4);
+                    revalidate();
+                    repaint();
+                    Dado dado = new Dado();
+                    Dado dadoSeleccionado = new Dado();
+                    partida.activarSuperHeroe(dado, dadoSeleccionado);
 
                 }
-                if (e.getSource() == dado3) {
-                    int[] caraDados = modelGeek.getCaras();
-                    if(caraDados[0]==1){
-                        panelActivos.remove(dado3);
-                        panelUtilizados.add(dado3);
-                        Dado dado3 = new Dado();
-                        Dado dadoSel = new Dado ();
-                        partida.activarSuperHeroe(dado3,dadoSel);
-                    }
-                }
-                if (e.getSource() == dado4) {
-                    int[] caraDados = modelGeek.getCaras();
-                    if(caraDados[0]==1){
-                        panelActivos.remove(dado4);
-                        panelUtilizados.add(dado4);
-                        Dado dado4= new Dado();
-                        Dado dadoSel = new Dado ();
-                        partida.activarSuperHeroe(dado4,dadoSel);
-
-                    }
-                }
-                if (e.getSource() == dado5) {
-                    int[] caraDados = modelGeek.getCaras();
-                    if(caraDados[0]==1){
-                        panelActivos.remove(dado5);
-                        panelUtilizados.add(dado5);
-                        Dado dado5 = new Dado();
-                        Dado dadoSel = new Dado ();
-                        partida.activarSuperHeroe(dado5,dadoSel);
-
-                    }
-                }
-                if (e.getSource() == dado6) {
-                    int[] caraDados = modelGeek.getCaras();
-                    if(caraDados[0]==1){
-                        panelActivos.remove(dado6);
-                        panelUtilizados.add(dado6);
-                        Dado dado6 = new Dado();
-                        Dado dadoSel = new Dado ();
-                        partida.activarSuperHeroe(dado6,dadoSel);
-
-                    }
+            }
+            if (e.getSource() == dado5) {
+                int[] caraDados = modelGeek.getCaras();
+                if (caraDados[4] == 5) {
+                    panelActivos.remove(dado5);
+                    panelUtilizados.add(dado5);
+                    revalidate();
+                    repaint();
+                    Dado dado = new Dado();
+                    Dado dadoSeleccionado = new Dado();
+                    partida.activarSuperHeroe(dado, dadoSeleccionado);
 
                 }
-                if (e.getSource() == dado7) {
-                    int[] caraDados = modelGeek.getCaras();
-                    if(caraDados[0]==1){
-                        panelActivos.remove(dado7);
-                        panelUtilizados.add(dado7);
-                        Dado dado7 = new Dado();
-                        Dado dadoSel = new Dado ();
-                        partida.activarSuperHeroe(dado7,dadoSel);
-
-                    }
+            }
+            if (e.getSource() == dado6) {
+                int[] caraDados = modelGeek.getCaras();
+                if (caraDados[5] == 5) {
+                    panelActivos.remove(dado6);
+                    panelUtilizados.add(dado6);
+                    revalidate();
+                    repaint();
+                    Dado dado = new Dado();
+                    Dado dadoSeleccionado = new Dado();
+                    partida.activarSuperHeroe(dado, dadoSeleccionado);
 
                 }
+
+            }
+            if (e.getSource() == dado7) {
+                int[] caraDados = modelGeek.getCaras();
+                if (caraDados[6] == 5) {
+                    panelActivos.remove(dado7);
+                    panelUtilizados.add(dado7);
+                    revalidate();
+                    repaint();
+                    Dado dado = new Dado();
+                    Dado dadoSeleccionado = new Dado();
+                    partida.activarSuperHeroe(dado, dadoSeleccionado);
+
+                }
+
+            }
 
 //----------------Se activa el poder del corazon------------------------------------------------------------------------
-                if (e.getSource() == dado1) {
-                    int[] caraDados = modelGeek.getCaras();
-                    if(caraDados[0]==1){
-                        panelActivos.remove(dado1);
-                        panelUtilizados.add(dado1);
-                        Dado dado1 = new Dado();
-                        Dado dadoSel = new Dado();
-                        partida.activarCorazon(dado1,dadoSel);
-
-                    }
-
-                }
-                if (e.getSource() == dado2) {
-                    int[] caraDados = modelGeek.getCaras();
-                    if(caraDados[0]==1){
-                        panelActivos.remove(dado2);
-                        panelUtilizados.add(dado2);
-                        Dado dado2 = new Dado();
-                        Dado dadoSel = new Dado();
-                        partida.activarCorazon(dado2,dadoSel);
-
-                    }
+            if (e.getSource() == dado1) {
+                int[] caraDados = modelGeek.getCaras();
+                if (caraDados[0] == 1) {
+                    panelActivos.remove(dado1);
+                    panelUtilizados.add(dado1);
+                    revalidate();
+                    repaint();
+                    Dado dado = new Dado();
+                    Dado dadoSeleccionado = new Dado();
+                    partida.activarCorazon(dado, dadoSeleccionado);
 
                 }
-                if (e.getSource() == dado3) {
-                    int[] caraDados = modelGeek.getCaras();
-                    if(caraDados[0]==1){
-                        panelActivos.remove(dado3);
-                        panelUtilizados.add(dado3);
-                        Dado dado3 = new Dado();
-                        Dado dadoSel = new Dado();
-                        partida.activarCorazon(dado3,dadoSel);
 
-                    }
-
-                }
-                if (e.getSource() == dado4) {
-                    int[] caraDados = modelGeek.getCaras();
-                    if(caraDados[0]==1){
-                        panelActivos.remove(dado4);
-                        panelUtilizados.add(dado4);
-                        Dado dado4 = new Dado();
-                        Dado dadoSel = new Dado();
-                        partida.activarCorazon(dado4,dadoSel);
-
-                    }
+            }
+            if (e.getSource() == dado2) {
+                int[] caraDados = modelGeek.getCaras();
+                if (caraDados[1] == 1) {
+                    panelActivos.remove(dado2);
+                    panelUtilizados.add(dado2);
+                    revalidate();
+                    repaint();
+                    Dado dado = new Dado();
+                    Dado dadoSeleccionado = new Dado();
+                    partida.activarCorazon(dado, dadoSeleccionado);
 
                 }
-                if (e.getSource() == dado5) {
-                    int[] caraDados = modelGeek.getCaras();
-                    if(caraDados[0]==1){
-                        panelActivos.remove(dado5);
-                        panelUtilizados.add(dado5);
-                        Dado dado5 = new Dado();
-                        Dado dadoSel = new Dado ();
-                        partida.activarCorazon(dado5,dadoSel);
 
-                    }
-
-                }
-                if (e.getSource() == dado6) {
-                    int[] caraDados = modelGeek.getCaras();
-                    if(caraDados[0]==1){
-                        panelActivos.remove(dado6);
-                        panelUtilizados.add(dado6);
-                        Dado dado6 = new Dado();
-                        Dado dadoSel = new Dado ();
-                        partida.activarCorazon(dado6,dadoSel);
-
-                    }
+            }
+            if (e.getSource() == dado3) {
+                int[] caraDados = modelGeek.getCaras();
+                if (caraDados[2] == 1) {
+                    panelActivos.remove(dado3);
+                    panelUtilizados.add(dado3);
+                    revalidate();
+                    repaint();
+                    Dado dado = new Dado();
+                    Dado dadoSeleccionado = new Dado();
+                    partida.activarCorazon(dado, dadoSeleccionado);
 
                 }
-                if (e.getSource() == dado7) {
-                    int[] caraDados = modelGeek.getCaras();
-                    if(caraDados[0]==1){
-                        panelActivos.remove(dado7);
-                        panelUtilizados.add(dado7);
-                        Dado dado7 = new Dado();
-                        Dado dadoSel = new Dado ();
-                        partida.activarCorazon(dado7,dadoSel);
-                    }
+
+            }
+            if (e.getSource() == dado4) {
+                int[] caraDados = modelGeek.getCaras();
+                if (caraDados[3] == 1) {
+                    panelActivos.remove(dado4);
+                    panelUtilizados.add(dado4);
+                    revalidate();
+                    repaint();
+                    Dado dado = new Dado();
+                    Dado dadoSeleccionado = new Dado();
+                    partida.activarCorazon(dado, dadoSeleccionado);
 
                 }
+
+            }
+            if (e.getSource() == dado5) {
+                int[] caraDados = modelGeek.getCaras();
+                if (caraDados[4] == 1) {
+                    panelActivos.remove(dado5);
+                    panelUtilizados.add(dado5);
+                    revalidate();
+                    repaint();
+                    Dado dado = new Dado();
+                    Dado dadoSeleccionado = new Dado();
+                    partida.activarCorazon(dado, dadoSeleccionado);
+
+                }
+
+            }
+            if (e.getSource() == dado6) {
+                int[] caraDados = modelGeek.getCaras();
+                if (caraDados[5] == 1) {
+                    panelActivos.remove(dado6);
+                    panelUtilizados.add(dado6);
+                    revalidate();
+                    repaint();
+                    Dado dado = new Dado();
+                    Dado dadoSeleccionado = new Dado();
+                    partida.activarCorazon(dado, dadoSeleccionado);
+
+                }
+
+            }
+            if (e.getSource() == dado7) {
+                int[] caraDados = modelGeek.getCaras();
+                if (caraDados[6] == 1) {
+                    panelActivos.remove(dado7);
+                    panelUtilizados.add(dado7);
+                    revalidate();
+                    repaint();
+                    Dado dado = new Dado();
+                    Dado dadoSeleccionado = new Dado();
+                    partida.activarCorazon(dado, dadoSeleccionado);
+                }
+
+            }
 
 //----------------------------------------Fin---------------------------------------------------------------------------
-            }
         }
     }
+}
 
 
 
