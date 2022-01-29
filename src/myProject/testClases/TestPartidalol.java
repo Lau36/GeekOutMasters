@@ -6,11 +6,10 @@ import myProject.Partida;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 public class TestPartidalol {
 
-    static Scanner scanner =  new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
     static Partida partida = new Partida();
     static ArrayList<Dado> activos = partida.getActivos().getDados();
     static ArrayList<Dado> inactivos = partida.getInactivos().getDados();
